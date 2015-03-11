@@ -1,0 +1,149 @@
+﻿@using SquawkTalk.Models
+@model SearchModel
+
+
+@section PageLevelStyles
+{
+    <link href="~/assets/global/plugins/bootstrap-select/bootstrap-select.css" rel="stylesheet" />
+}
+
+@section PageLevelScripts
+{
+    <script src="~/assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+}
+
+@section DocumentReadyScripts
+{
+   $('#feeds').selectpicker();
+}
+@section Scripts
+{
+    <script type="text/javascript">
+        $("#submit").click(function () {
+            var feeds = $("#feeds").val();
+            var cats = $("#categories").val();
+
+            $.ajax({
+                type: 'GET',
+                url: '/JobSearch/SearchResults?feeds=' + feeds + "&categories=" + cats,
+                cache: false,
+                data: {},
+                success: function (data) {
+                    if (data.success) {
+                        // the controller action returned true => we can redirect
+                        // to the original url:
+                        alert("success");
+                    }
+                    else {
+                        alert("Cannot Add race becasue you have not yet added any fleets and fleet scoring is checked.");
+                    }
+                },
+                error: function (req) {
+
+                }
+            });
+        });
+
+        
+</script>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue-madison">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-search"></i>Search Job Listings
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <!-- BEGIN FORM-->
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Craigslist Sites to Search (max 5 sites)</label>
+                                    <select data-max-options="5"  class="form-control" name="feeds[]" id="feeds" multiple data-size="10">
+                                        @foreach (var feed in Model.Feeds)
+                                        {
+                                            <option value="@feed.Guid">@feed.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Categories</label>
+                                    <select class="selectpicker form-control" name="feeds[]" multiple>
+                                        <option value="sof">Software / qa / dba</option>
+                                        <option value="web">web / info design</option>
+                                        <option value="eng">internet engineers</option>
+                                        <option value="sad">systems / networking</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="control-label">Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                                <input type="email" class="form-control" placeholder="Email Address">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Password</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" placeholder="Password">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Left Icon</label>
+                            <div class="input-icon">
+                                <i class="fa fa-bell-o"></i>
+                                <input type="text" class="form-control" placeholder="Left icon">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Right Icon</label>
+                            <div class="input-icon right">
+                                <i class="fa fa-microphone"></i>
+                                <input type="text" class="form-control" placeholder="Right icon">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Input With Spinner</label>
+                            <input type="password" class="form-control spinner" placeholder="Password">
+                        </div>
+                        <div class="form-group last">
+                            <label class="control-label">Static Control</label>
+                            <p class="form-control-static">
+                                email@example.com
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="btn-set pull-left">
+                            <button type="submit" class="btn green">Submit</button>
+                        </div>
+                    </div>
+                <!-- END FORM-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="form-body">
+<div class="form-group">
+    <label class="control-label">Text</label>
+    
+    <span class="help-block">
+            A block of help text.
+        </span>
+</div>
+</div>
