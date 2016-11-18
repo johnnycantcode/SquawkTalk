@@ -1,7 +1,37 @@
 ﻿
-@{
-    ViewBag.Title = "SearchResults";
-}
+@model SquawkTalk.Models.SearchResultsModel
 
-<h2>SearchResults</h2>
-
+<table class="table table-bordered table-striped table-condensed flip-content">
+    <thead class="flip-content">
+        <tr>
+            <th>
+                Site
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Posting Title
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var feedList in Model.Results)
+        {
+            foreach (var itm in feedList.FeedItems)
+            {
+                <tr>
+                    <td>
+                        @feedList.Site
+                    </td>
+                    <td>
+                        @feedList.Category
+                    </td>
+                    <td>
+                        @itm.Title
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

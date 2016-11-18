@@ -17,35 +17,65 @@ namespace SquawkTalk
         public static List<FeedItemModel> GetFeedItems(string feedUrl)
         {
             var xmlDoc = new XmlDocument();
-            WebRequest req = HttpWebRequest.Create(feedUrl);
-            using (Stream stream = req.GetResponse().GetResponseStream())
+            var feedItems = new List<FeedItemModel>();
+            try
             {
-
-                using (StreamReader oReader = new StreamReader(stream, Encoding.GetEncoding("UTF-8")))
+                WebRequest req = HttpWebRequest.Create(feedUrl);
+                using (Stream stream = req.GetResponse().GetResponseStream())
                 {
-                    xmlDoc.Load(oReader);
+
+                    using (StreamReader oReader = new StreamReader(stream, Encoding.GetEncoding("UTF-8")))
+                    {
+                        xmlDoc.Load(oReader);
+                    }
+                }
+                var nTable = xmlDoc.NameTable;
+                var nsManager = new XmlNamespaceManager(nTable);
+                nsManager.AddNamespace("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+                nsManager.AddNamespace("item", "http://purl.org/rss/1.0/");
+                nsManager.AddNamespace("dc", "http://purl.org/dc/elements/1.1/");
+
+                var xmlItems = xmlDoc.DocumentElement.SelectNodes("//rdf:RDF/item:item", nsManager);
+
+
+                foreach (XmlNode currentItem in xmlItems)
+                {
+                    var title = currentItem.SelectSingleNode("item:title", nsManager).InnerText;
+                    var link = currentItem.SelectSingleNode("item:link", nsManager).InnerText;
+                    var desc = string.Empty;
+
+                    try
+                    {
+                        desc = currentItem.SelectSingleNode("item:description", nsManager).InnerText;
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+
+                    Uri uri = new Uri(link);
+                    var id = Path.GetFileName(uri.AbsolutePath).Replace(".html", "");
+                    var siteurl = string.Format("{0}://{1}/", uri.Scheme, uri.DnsSafeHost);
+
+                    var issued = DateTime.MinValue;
+                    foreach (XmlNode n in currentItem.ChildNodes)
+                    {
+                        if (n.Name == "dcterms:issued")
+                        {
+                            DateTime.TryParse(n.InnerText, out issued);
+                            break;
+                        }
+                    }
+
+                    //var id = uri.
+                    var itm = new FeedItemModel(id, uri.DnsSafeHost, title, link, desc, siteurl, issued);
+                    if ((DateTime.Now - itm.Issued).TotalHours < 500)
+                        feedItems.Add(itm);
                 }
             }
-            var nTable = xmlDoc.NameTable;
-            var nsManager = new XmlNamespaceManager(nTable);
-            nsManager.AddNamespace("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-            nsManager.AddNamespace("item", "http://purl.org/rss/1.0/");
-            nsManager.AddNamespace("dc", "http://purl.org/dc/elements/1.1/");
-
-            var xmlItems = xmlDoc.DocumentElement.SelectNodes("//rdf:RDF/item:item", nsManager);
-
-            var feedItems = new List<FeedItemModel>();
-            foreach (XmlNode currentItem in xmlItems)
+            catch(Exception ex)
             {
-                var title = currentItem.SelectSingleNode("item:title", nsManager).InnerText;
-                var link = currentItem.SelectSingleNode("item:link", nsManager).InnerText;
-                var desc = currentItem.SelectSingleNode("item:description", nsManager).InnerText;
-
-                Uri uri = new Uri(link);
-                var id = Path.GetFileName(uri.AbsolutePath).Replace(".html", "");
-                var siteurl = string.Format("{0}://{1}/", uri.Scheme, uri.DnsSafeHost);
-                //var id = uri.
-                feedItems.Add(new FeedItemModel(id, title, link, desc, siteurl));
+                //
             }
             return feedItems;
         }
@@ -82,7 +112,18 @@ namespace SquawkTalk
 
         public static string GetReplyToLink(string url)
         {
-            var uri = new Uri(url);
+
+            Uri uri = null;
+            try
+            {
+                uri = new Uri(url);
+            }
+            catch(Exception ex)
+            {
+                //TODO: Log exception for bad url
+                return string.Empty;
+            }
+
             var siteUrl = string.Format("{0}://{1}", uri.Scheme, uri.DnsSafeHost);
             WebClient client = new WebClient();
             client.Headers.Add("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");

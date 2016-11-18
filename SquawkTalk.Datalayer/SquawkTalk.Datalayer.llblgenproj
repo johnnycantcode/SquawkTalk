@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--LLBLGen Pro v3.5 project file. Do not manually edit this file. Incorrect references could lead to an unloadable project file.-->
+<Project Version="3.5" TargetFrameworkName="LLBLGen Pro Runtime Framework">
+  <Properties>
+    <Abbreviations />
+    <Property Name="AdditionalTaskPerformerFolder" Value="" />
+    <Property Name="AdditionalTasksFolder" Value="" />
+    <Property Name="AdditionalTemplatesFolder" Value="" />
+    <Property Name="AdditionalTypeConverterFolder" Value="" />
+    <Property Name="AddNewElementsAfterRefresh" Value="0" />
+    <Property Name="AddNewFieldsAfterRefresh" Value="0" />
+    <Property Name="AddNewViewsAsEntitiesAfterRefresh" Value="0" />
+    <Property Name="AutoAddManyToManyRelationships" Value="false" />
+    <Property Name="AutoAssignSequencesToIntegerPks" Value="true" />
+    <Property Name="AutoAssignTypeConverterToFieldMapping" Value="false" />
+    <Property Name="CleanUpVsNetProjects" Value="true" />
+    <Property Name="ConnectionStringKeyNamePattern" Value="ConnectionString" />
+    <Property Name="EncodingToUse" Value="0" />
+    <Property Name="EnforcePascalCasingAlways" Value="true" />
+    <Property Name="EntityFieldNameStripPattern" Value="{}{}" />
+    <Property Name="EntityNameStripPattern" Value="{tbl_}{}" />
+    <Property Name="ExcludableOrphanedElementDetectedAction" Value="3" />
+    <Property Name="FailCodeGenerationOnWriteError" Value="false" />
+    <Property Name="FieldMappedOntoRelatedFieldPattern" Value="{$RelatedFieldName}" />
+    <Property Name="FkFieldsAreNamedAfterTargetField" Value="true" />
+    <Property Name="ForeignKeyFieldPattern" Value="{$NavigatorName}{$RelatedFieldName}" />
+    <Property Name="GroupUsage" Value="0" />
+    <Property Name="IdentifyingFieldsFollowDBPrimaryKeyConstraints" Value="0" />
+    <Property Name="InsertUnderscoreAtWordBreakCaseInsensitiveDBs" Value="false" />
+    <Property Name="InsertUnderscoreAtWordBreakCaseSensitiveDBs" Value="false" />
+    <Property Name="LengthPrecisionScaleFollowDBLengthPrecisionScale" Value="0" />
+    <Property Name="MakeElementNamePascalCasing" Value="true" />
+    <Property Name="NavigatorMappedOntoManyToManyPattern" Value="{$EndEntityName}CollectionVia{$IntermediateEntityName$S}" />
+    <Property Name="NavigatorMappedOntoOneManyToOnePattern" Value="{$EndEntityName$S}" />
+    <Property Name="NavigatorMappedOntoOneToManyPattern" Value="{$EndEntityName$P}" />
+    <Property Name="NonExcludableOrphanedElementDetectedAction" Value="3" />
+    <Property Name="PreferDecimalOverCurrencyTypes" Value="true" />
+    <Property Name="PreferNaturalCharacterTypes" Value="true" />
+    <Property Name="PreferVariableLengthTypes" Value="true" />
+    <Property Name="ProjectCreator" Value="Scott Smith" />
+    <Property Name="ProjectName" Value="SquawkTalk.Datalayer" />
+    <Property Name="ReflectNullabilityOfElementFieldInTargetField" Value="0" />
+    <Property Name="RelationalModelDataElementNameCasingCaseInsensitiveDBs" Value="3" />
+    <Property Name="RelationalModelDataElementNameCasingCaseSensitiveDBs" Value="3" />
+    <Property Name="RelationshipsFollowDBForeignKeyConstraints" Value="0" />
+    <Property Name="RemoveUnderscoresFromElementName" Value="true" />
+    <Property Name="RemoveUnmappedElementsAfterRefresh" Value="0" />
+    <Property Name="ResetFieldOrderBasedOnTargetOrderAtRefresh" Value="false" />
+    <Property Name="RetrieveDBCustomProperties" Value="false" />
+    <Property Name="RootNamespace" Value="" />
+    <Property Name="SequencePattern" Value="SEQ_{$EntityName}" />
+    <Property Name="SetGroupNameAfterSchemaName" Value="true" />
+    <Property Name="SetSchemaNameAfterGroupName" Value="true" />
+    <Property Name="StoredProcNameStripPattern" Value="{pr_, sp_}{}" />
+    <Property Name="StoreTimeLastGeneratedIntoProject" Value="false" />
+    <Property Name="SyncMappedElementNamesAfterRefresh" Value="0" />
+    <Property Name="SyncRelationalModelDataElementNameAfterRename" Value="0" />
+    <Property Name="SyncRenamedMappedElementNamesAfterRefresh" Value="0" />
+    <Property Name="TargetPerEntityEdgesRequireBackingFkConstraint" Value="true" />
+    <Property Name="TypedViewFieldNameStripPattern" Value="{}{}" />
+    <Property Name="TypedViewNameStripPattern" Value="{vw_}{}" />
+    <Property Name="UniqueConstraintsFollowDBUniqueConstraints" Value="0" />
+    <Property Name="UpdateCustomPropertiesAfterRefresh" Value="0" />
+    <Property Name="UseCustomFieldOrderingOnNewElements" Value="false" />
+  </Properties>
+  <TypeShortcuts />
+  <CodeGenerationCyclePreferences>
+    <OutputType Value="3">
+      <LastUsedPreferences>
+        <DestinationRootFolder Value="D:\Projects\SquawkTalk\SquawkTalk.Datalayer" />
+        <FrameworkName Value="LLBLGen Pro Runtime Framework" />
+        <LanguageName Value="C#" />
+        <PlatformName Value=".NET 4.5" />
+        <PresetName Value="SD.Presets.SelfServicing.General2012" />
+        <RootNamespace Value="SquawkTalk.Datalayer" />
+        <TemplateGroup Value="SelfServicing" />
+        <TemplateBindings>
+          <Binding Name="SD.TemplateBindings.SqlServerSpecific.NET20" />
+          <Binding Name="SD.TemplateBindings.SharedTemplates.NET45" />
+          <Binding Name="SD.TemplateBindings.SharedTemplates.NET35" />
+          <Binding Name="SD.TemplateBindings.SharedTemplates.NET20" />
+          <Binding Name="SD.TemplateBindings.General" />
+        </TemplateBindings>
+      </LastUsedPreferences>
+    </OutputType>
+  </CodeGenerationCyclePreferences>
+  <CodeGenerationMetaDataDefaults>
+    <TargetElement Type="256">
+      <OutputSettingValues>
+        <Attributes>
+          <Attribute Value="Browsable($false)" />
+        </Attributes>
+      </OutputSettingValues>
+    </TargetElement>
+  </CodeGenerationMetaDataDefaults>
+  <EntityModel>
+    <ValueTypeDefinitions />
+    <EntityDefinitions>
+      <EntityDefinition Name="EmailTemplate">
+        <Fields>
+          <Field Name="Guid" Type="guid" IsPrimaryKey="true" />
+          <Field Name="PersonGuid" Type="guid" />
+          <Field Name="Template" Type="string" IsOptional="true" MaxLength="2147483647" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="Feed">
+        <Fields>
+          <Field Name="FeedUrl" Type="string" IsOptional="true" MaxLength="500" />
+          <Field Name="Guid" Type="guid" IsPrimaryKey="true" />
+          <Field Name="LastScan" Type="datetime" IsOptional="true" />
+          <Field Name="Name" Type="string" IsOptional="true" MaxLength="100" />
+          <Field Name="PersonGuid" Type="guid" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="Person">
+        <Fields>
+          <Field Name="Email" Type="string" MaxLength="100" />
+          <Field Name="Firstname" Type="string" IsOptional="true" MaxLength="50" />
+          <Field Name="Guid" Type="guid" IsPrimaryKey="true" />
+          <Field Name="Lastname" Type="string" IsOptional="true" MaxLength="50" />
+          <Field Name="Password" Type="string" MaxLength="50" />
+          <Field Name="Username" Type="string" MaxLength="50" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="Response">
+        <Fields>
+          <Field Name="EmailTemplateGuid" Type="guid" />
+          <Field Name="FeedGuid" Type="guid" />
+          <Field Name="Guid" Type="guid" IsPrimaryKey="true" />
+          <Field Name="Id" Type="string" MaxLength="2147483647" />
+          <Field Name="SentOn" Type="datetime" />
+          <Field Name="ToEmail" Type="string" MaxLength="500" />
+        </Fields>
+      </EntityDefinition>
+    </EntityDefinitions>
+    <Relationships>
+      <NormalRelationship Name="EmailTemplate.Person-Person.EmailTemplates" Start=":EmailTemplate" End=":Person" StartNavigator="Person" EndNavigator="EmailTemplates" Type="4">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="PersonGuid" PkField="Guid" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="Feed.Person-Person.Feeds" Start=":Feed" End=":Person" StartNavigator="Person" EndNavigator="Feeds" Type="4">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="PersonGuid" PkField="Guid" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="Response.Feed-Feed.Responses" Start=":Response" End=":Feed" StartNavigator="Feed" EndNavigator="Responses" Type="4">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="FeedGuid" PkField="Guid" />
+        </FieldRelationships>
+      </NormalRelationship>
+    </Relationships>
+    <InheritanceHierarchies />
+  </EntityModel>
+  <TargetDatabases>
+    <TargetDatabase Type="2D18D138-1DD2-467E-86CC-4838250611AE">
+      <ConnectionElements>
+        <ConnectionElement Name="ServerName" Value="Hansolo" />
+        <ConnectionElement Name="CatalogName" Value="master" />
+        <ConnectionElement Name="UserID" Value="sa" />
+        <ConnectionElement Name="Password" Value="" />
+      </ConnectionElements>
+      <SystemSequences>
+        <Sequence Name="SCOPE_IDENTITY()" />
+        <Sequence Name="@@IDENTITY" />
+      </SystemSequences>
+      <Catalogs>
+        <Catalog Name="SquawkTalk">
+          <Schemas>
+            <Schema Name="dbo">
+              <Tables>
+                <Table Name="EmailTemplate">
+                  <Fields>
+                    <Field Name="Guid" Ordinal="1" IsPrimaryKey="true" DefaultValue="(newid())" PkConstraintName="PK_EmailTemplate" DbType="25" />
+                    <Field Name="PersonGuid" Ordinal="2" DbType="25" />
+                    <Field Name="Template" Ordinal="3" IsOptional="true" DbType="20" Length="2147483647" />
+                  </Fields>
+                </Table>
+                <Table Name="Feed">
+                  <Fields>
+                    <Field Name="Guid" Ordinal="1" IsPrimaryKey="true" DefaultValue="(newid())" PkConstraintName="PK_Feed" DbType="25" />
+                    <Field Name="PersonGuid" Ordinal="2" DbType="25" />
+                    <Field Name="FeedUrl" Ordinal="3" IsOptional="true" DbType="12" Length="500" />
+                    <Field Name="Name" Ordinal="4" IsOptional="true" DbType="12" Length="100" />
+                    <Field Name="LastScan" Ordinal="5" IsOptional="true" DbType="4" />
+                  </Fields>
+                </Table>
+                <Table Name="Person">
+                  <Fields>
+                    <Field Name="Guid" Ordinal="1" IsPrimaryKey="true" DefaultValue="(newid())" PkConstraintName="PK_Person" DbType="25" />
+                    <Field Name="Firstname" Ordinal="2" IsOptional="true" DbType="12" Length="50" />
+                    <Field Name="Lastname" Ordinal="3" IsOptional="true" DbType="12" Length="50" />
+                    <Field Name="Email" Ordinal="4" DbType="12" Length="100" />
+                    <Field Name="Username" Ordinal="5" DbType="12" Length="50" />
+                    <Field Name="Password" Ordinal="6" DbType="12" Length="50" />
+                  </Fields>
+                </Table>
+                <Table Name="Response">
+                  <Fields>
+                    <Field Name="Guid" Ordinal="1" IsPrimaryKey="true" PkConstraintName="PK_Response" DbType="25" />
+                    <Field Name="Id" Ordinal="2" DbType="12" Length="2147483647" />
+                    <Field Name="ToEmail" Ordinal="3" DbType="12" Length="500" />
+                    <Field Name="FeedGuid" Ordinal="4" DbType="25" />
+                    <Field Name="EmailTemplateGuid" Ordinal="5" DbType="25" />
+                    <Field Name="SentOn" Ordinal="6" DbType="4" />
+                  </Fields>
+                </Table>
+              </Tables>
+            </Schema>
+          </Schemas>
+          <ForeignKeyConstraints>
+            <ForeignKeyConstraint Name="dbo:EmailTemplate:FK_EmailTemplate_Person1">
+              <FieldPairs>
+                <FieldPair PkField="dbo:Person:Guid" FkField="dbo:EmailTemplate:PersonGuid" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:Feed:FK_Feed_Person">
+              <FieldPairs>
+                <FieldPair PkField="dbo:Person:Guid" FkField="dbo:Feed:PersonGuid" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:Response:FK_Response_Feed">
+              <FieldPairs>
+                <FieldPair PkField="dbo:Feed:Guid" FkField="dbo:Response:FeedGuid" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+          </ForeignKeyConstraints>
+        </Catalog>
+      </Catalogs>
+    </TargetDatabase>
+  </TargetDatabases>
+  <MappingStores>
+    <MappingStore Type="2D18D138-1DD2-467E-86CC-4838250611AE">
+      <EntityMappings>
+        <EntityMapping EntityName=":EmailTemplate" TargetName="SquawkTalk:dbo:EmailTemplate">
+          <FieldMappings>
+            <FieldMapping FieldName="Guid" TargetFieldName="Guid" />
+            <FieldMapping FieldName="PersonGuid" TargetFieldName="PersonGuid" />
+            <FieldMapping FieldName="Template" TargetFieldName="Template" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":Feed" TargetName="SquawkTalk:dbo:Feed">
+          <FieldMappings>
+            <FieldMapping FieldName="FeedUrl" TargetFieldName="FeedUrl" />
+            <FieldMapping FieldName="Guid" TargetFieldName="Guid" />
+            <FieldMapping FieldName="LastScan" TargetFieldName="LastScan" />
+            <FieldMapping FieldName="Name" TargetFieldName="Name" />
+            <FieldMapping FieldName="PersonGuid" TargetFieldName="PersonGuid" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":Person" TargetName="SquawkTalk:dbo:Person">
+          <FieldMappings>
+            <FieldMapping FieldName="Email" TargetFieldName="Email" />
+            <FieldMapping FieldName="Firstname" TargetFieldName="Firstname" />
+            <FieldMapping FieldName="Guid" TargetFieldName="Guid" />
+            <FieldMapping FieldName="Lastname" TargetFieldName="Lastname" />
+            <FieldMapping FieldName="Password" TargetFieldName="Password" />
+            <FieldMapping FieldName="Username" TargetFieldName="Username" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":Response" TargetName="SquawkTalk:dbo:Response">
+          <FieldMappings>
+            <FieldMapping FieldName="EmailTemplateGuid" TargetFieldName="EmailTemplateGuid" />
+            <FieldMapping FieldName="FeedGuid" TargetFieldName="FeedGuid" />
+            <FieldMapping FieldName="Guid" TargetFieldName="Guid" />
+            <FieldMapping FieldName="Id" TargetFieldName="Id" />
+            <FieldMapping FieldName="SentOn" TargetFieldName="SentOn" />
+            <FieldMapping FieldName="ToEmail" TargetFieldName="ToEmail" />
+          </FieldMappings>
+        </EntityMapping>
+      </EntityMappings>
+      <TypedViewMappings />
+      <SPCallMappings />
+      <TypeConversionDefinitions />
+    </MappingStore>
+  </MappingStores>
+  <ModelViews />
+</Project>

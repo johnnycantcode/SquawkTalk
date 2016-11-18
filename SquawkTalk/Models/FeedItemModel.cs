@@ -15,15 +15,18 @@ namespace SquawkTalk.Models
             //empty constructor
         }
 
-        public FeedItemModel(string id, string title, string url, string desc, string siteurl)
+        public FeedItemModel(string id, string sitename, string title, string url, string desc, string siteurl, DateTime issued)
         {
             this.Id = id;
+            this.SiteName = sitename;
             this.Title = title;
             this.Url = url;
             this.Description = desc;
             this.SiteUrl = siteurl;
+            this.Issued = issued;
         }
 
+        public string SiteName { get; set; }
 
         public string Title { get; set; }
         public string Url { get; set; }
@@ -33,6 +36,19 @@ namespace SquawkTalk.Models
 
         public string Id { get; set; }
 
+        public DateTime Issued { get; set; }
+
+        public string IssuedDateString
+        {
+            get
+            {
+                double hours = (DateTime.Now - Issued).TotalHours;
+                if(hours > 24)
+                    return string.Format("{0} days ago", Math.Round(hours/24, 0).ToString());
+                else
+                    return string.Format("{0} hours ago", Math.Round(hours, 0).ToString());
+            }
+        }
 
         public string GetReplyToUrl()
         {
